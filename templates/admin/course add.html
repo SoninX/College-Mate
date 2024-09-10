@@ -1,0 +1,54 @@
+{% extends 'admin/selection.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-active">
+   <h6 class="section-title bg-white text-center text-primary px-3">ADD COURSE</h6>
+    <tr>
+      <th width="237" scope="row">Department Name :</th>
+      <td width="133">
+        <select name="select" id="select" class="form-control">
+            {% for i in data %}
+            <option value="{{ i.dept_id }}">{{ i.dept_name }}</option>
+            {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <th width="237" scope="row">Semester :</th>
+      <td width="133">
+{#        <select name="select1" id="select1" class="form-control">#}
+
+{#            <option >semester1</option>#}
+{#            <option >semester2</option>#}
+{#            <option >semester3</option>#}
+{#            <option >semester4</option>#}
+{#            <option >semester5</option>#}
+{#            <option >semester6</option>#}
+            <input type="number" name="select1" min="1" required class="form-control"/>
+
+
+
+{#      </select>#}
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Course Name :</th>
+      <td>
+      <input type="text" name="textfield" id="textfield" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="add" class="btn btn-dark" /></th>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

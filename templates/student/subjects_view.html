@@ -1,0 +1,35 @@
+{% extends 'student/student_index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<table class="table table-active">
+<h6 class="section-title bg-white text-center text-primary px-3">SUBJECTS</h6>
+  <tr>
+    <th scope="row">#</th>
+    <th  scope="row">COURSE NAME</th>
+    <th >SUBJECTS</th>
+      <th></th>
+      <th></th>
+  </tr>
+  <tr>
+      {% for i in data %}
+    <th height="80" scope="row">&nbsp{{ loop.index }}</th>
+    <td>{{ i.course_name }}</td>
+    <td>{{ i.sub_name }}</td>
+          <th><a href="/staffsview/{{ i.s }}#aaa" CLASS="btn btn-dark" >STAFF</a></th>
+          <th><a href="/sclass/{{ i.suballoc_courseid }}#aaa" CLASS="btn btn-dark">JOIN CLASS</a> </th>
+{#          <th><a href="/v_call_s" CLASS="btn btn-dark">EXAM</a> </th>#}
+  </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
+{% endblock %}

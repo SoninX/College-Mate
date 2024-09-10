@@ -1,0 +1,32 @@
+{% extends 'admin/selection.html' %}
+{% block body %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form method="post">
+<table class="table table-active">
+<tr><th>
+    <h4 style="text-align: center;"> select staff</h4></th>
+<td>
+     <select name="staff" class="form-control">
+        {% for i in data %}
+        <option value="{{ i.staff_id }}">{{ i.staff_name }}</option>
+        {% endfor %}
+    </select></td>
+</tr>
+<tr>
+    <td colspan="2">
+    <input type = submit value="allocate" class="btn btn-dark">
+    </td>
+</tr>
+{#    </center>#}
+</table>
+</form>
+
+</body>
+</html>
+{% endblock %}

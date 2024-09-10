@@ -1,0 +1,69 @@
+{% extends 'staff/selection.html' %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="">
+{#<h3>View Question</h3>#}
+{% if data %}
+<h4>MCQ</h4>
+  <table class="table table-bordered">
+    <tr style="background-color: #3c35ce;color: white">
+      <th scope="col">#</th>
+      <th scope="col">Question</th>
+
+      <th scope="col">Option1</th>
+      <th scope="col">Option2</th>
+        <th scope="col">Option3</th>
+        <th scope="col">Option4</th>
+        <th scope="col">Correct Answer</th>
+        <th scope="col">Marks</th>
+        <td></td>
+    </tr>
+       {% for i in data %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i['question'] }}</td>
+      <td>{{ i['option1'] }}</td>
+      <td>&nbsp;{{ i['option2'] }}</td>
+    <td>&nbsp;{{ i['option3'] }}</td>
+    <td>&nbsp;{{ i['option4'] }}</td>
+    <td>&nbsp;{{ i['correct'] }}</td>
+    <td>&nbsp;{{ i['marks'] }}</td>
+    <td><a href="/quedelete/{{ i.qid }}" onclick="return confirm('Are u sure to delete?')" class="btn btn-danger">Delete</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+
+{% endif %}
+{% if data1 %}
+<h4>Briefly explain</h4>
+  <table class="table table-bordered">
+    <tr style="background-color: #3c35ce;color: white">
+      <th scope="col">#</th>
+      <th scope="col">Question</th>
+        <th scope="col">Correct Answer</th>
+        <th scope="col">Marks</th>
+        <td></td>
+    </tr>
+       {% for i in data1 %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i['question'] }}</td>
+    <td>&nbsp;{{ i['correct'] }}</td>
+    <td>&nbsp;{{ i['marks'] }}</td>
+    <td><a href="/quedelete/{{ i.qid }}" onclick="return confirm('Are u sure to delete?')"  class="btn btn-danger">Delete</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+{% endif %}
+</form>
+</body>
+</html>
+{% endblock %}

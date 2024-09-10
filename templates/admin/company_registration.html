@@ -1,0 +1,87 @@
+{% extends"company/company_blank.html" %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Company Registration</title>
+</head>
+
+<body>
+    <div class="container-xxl py-5 category">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Register as a Company</h6>
+                <h1 class="mb-5">Company Registration</h1>
+            </div>
+        </div>
+    </div>
+
+    <form id="form1" name="form1" method="post" action="">
+        <table width="513" height="662" border="1" align="center">
+            <tr>
+                <th width="120" scope="row">Company Name:</th>
+                <td width="377"><input type="text" name="textfield1" id="textfield" /></td>
+            </tr>
+            <tr>
+                <th width="120" scope="row">Company Code:</th>
+                <td width="377"><input type="text" name="textfield01" id="textfield01" /></td>
+            </tr>
+            <tr>
+                <th width="167" scope="row">Password:</th>
+                <td><input type="password" name="password" /></td>
+            </tr>
+            <tr>
+                <th scope="row">Company Type:</th>
+                <td><select id="textfield2" name="textfield2">
+                    <option value="" selected disabled>Select an IT Domain</option>
+                    <option value="frontend">Frontend Development</option>
+                    <option value="backend">Backend Development</option>
+                    <option value="data">Data Science</option>
+                    <option value="security">Cybersecurity</option>
+                    <option value="mobile">Mobile App Development</option>
+                    <option value="cloud">Cloud Computing</option>
+                    <option value="network">Network Administration</option>
+                    <option value="devops">DevOps</option>
+                    <option value="uiux">UI/UX Design</option>
+                    <option value="ai">Artificial Intelligence</option>
+                    <option value="iot">Internet of Things (IoT)</option>
+                    <option value="blockchain">Blockchain Technology</option>
+                    <option value="testing">Software Testing</option>
+                    <option value="database">Database Administration</option>
+                    <option value="game">Game Development</option>
+                </select></td>
+{#                <td><input type="text" name="textfield2" id="textfield2" /></td>#}
+            </tr>
+            <tr>
+                <th scope="row">Company Location:</th>
+                <td><input type="text" name="textfield3" id="textfield3" /></td>
+            </tr>
+            <tr>
+                <th scope="row">Email ID:</th>
+                <td><input type="text" name="textfield4" id="textfield4" /></td>
+            </tr>
+            <tr>
+                <th scope="row">HR Name:</th>
+                <td><input type="text" name="textfield5" id="textfield5" /></td>
+            </tr>
+            <tr>
+                <th scope="row">HR Number:</th>
+                <td><input type="text" name="textfield6" id="textfield6" /></td>
+            </tr>
+            <tr>
+                <th scope="row">HR Email:</th>
+                <td><input type="text" name="textfield7" id="textfield7" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" name="button" id="button" value="Sign up" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
+
+{% endblock %}>

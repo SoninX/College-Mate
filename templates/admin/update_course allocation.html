@@ -1,0 +1,56 @@
+{% extends 'admin/selection.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-active">
+   <h6 class="section-title bg-white text-center text-primary px-3">UPDATE ALLOCATION</h6>
+      <tr>
+      <td>course name</td>
+      <td><label for="select2"></label>
+      <select name="select2" id="select2" class="form-control">
+            {% for i in data3 %}
+            <option value="{{ i.course_id }}" {% if i.course_id==data2.course_id  %} selected{% endif %}>{{ i.course_name }}</option>
+            {% endfor %}
+      </select></td>
+    </tr>
+
+    <tr>
+      <td width="190">subject name</td>
+      <td width="272">
+      <select name="select" id="select" class="form-control">
+            {% for i in data %}
+            <option value="{{ i.sub_id }}" {% if i.sub_id==data2.subject_id  %} selected{% endif %}>{{ i.sub_name }}</option>
+            {% endfor %}
+      </select></td>
+    </tr>
+  <tr>
+  <td width="190">semester </td>
+      <td width="272">
+    <select name="select3" id="select3" class="form-control">
+
+            <option {% if data2.sems == 'semester1' %}selected{% endif %}>semester1</option>
+            <option {% if data2.sems == 'semester2' %}selected{% endif %}>semester2</option>
+            <option {% if data2.sems == 'semester3' %}selected{% endif %}>semester3</option>
+            <option {% if data2.sems == 'semester4' %}selected{% endif %}>semester4</option>
+            <option {% if data2.sems == 'semester5' %}selected{% endif %}>semester5</option>
+            <option {% if data2.sems == 'semester6' %}selected{% endif %}>semester6</option>
+
+
+
+      </select></td>
+  </tr>
+    <tr>
+      <td height="59" colspan="2"><input type="submit" name="button" id="button" value="allocate" class="btn btn-dark" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

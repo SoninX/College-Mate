@@ -1,0 +1,53 @@
+{% extends 'student/student_index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="" method="post">
+<table class="table table-bordered">
+  <tr>
+    <th scope="row">Question</th>
+    <td>
+      <textarea name="textarea" id="textarea" cols="45" rows="5" disabled>{{ data['question'] }}</textarea></td>
+  </tr>
+    {% if data['exam_type']|string == "MCQ" %}
+  <tr>
+    <th scope="row">Option1</th>
+    <td><input type="radio" name="radio" id="radio" value="{{ data['option1'] }}" />
+      <label for="radio">{{ data['option1'] }}</label></td>
+  </tr>
+  <tr>
+    <th scope="row">Option2</th>
+    <td><input type="radio" name="radio" id="radio2" value="{{ data['option2'] }}"  />
+      <label for="radio2">{{ data['option2'] }}</label></td>
+  </tr>
+  <tr>
+    <th scope="row">Option3</th>
+    <td><input type="radio" name="radio" id="radio3" value="{{ data['option3'] }}"  />
+      <label for="radio3">{{ data['option3'] }}</label></td>
+  </tr>
+  <tr>
+    <th scope="row">Option 4</th>
+    <td><input type="radio" name="radio" id="radio4" value="{{ data['option4'] }}"  />
+      <label for="radio4">{{ data['option4'] }}</label></td>
+  </tr>
+    {% else %}
+      <tr>
+          <td>Answer</td>
+          <td><textarea name="radio" class="form-control"></textarea> </td>
+      </tr>
+    {% endif %}
+  <tr>
+    <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="Submit"  class="btn btn-dark" /></th>
+    </tr>
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'admin/selection.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="table table-active">
+   <h6 class="section-title bg-white text-center text-primary px-3">ADD STAFF</h6>
+    <tr>
+      <th scope="row">Name :</th>
+      <td>
+      <input type="text" name="textfield" id="textfield" class="form-control" required/></td>
+    </tr>
+<tr>
+      <th scope="row">department Name :</th>
+      <td>
+        <select name="select" id="select" class="form-control" required>
+            {% for i in data %}
+            <option value="{{ i.dept_id }}">{{ i.dept_name }}</option>
+            {% endfor %}
+      </select></td>
+    </tr>
+  <tr>
+       <th scope="row">gender</th>
+       <td><p>
+         <label>
+           <input type="radio" name="RadioGroup1" value="male" id="RadioGroup1_0"  checked/>
+           male</label>
+         <br />
+         <label>
+           <input type="radio" name="RadioGroup1" value="female" id="RadioGroup1_1"  />
+           female</label>
+         <br />
+         <label>
+           <input type="radio" name="RadioGroup1" value="other" id="RadioGroup1_2"  />
+           other</label>
+         <br />
+       </p></td>
+     </tr>
+     <tr>
+      <th scope="row">place :</th>
+      <td>
+      <input type="text" name="textfield4" id="textfield4"  class="form-control" required/></td>
+    </tr>
+     <tr>
+      <th scope="row">post</th>
+      <td>
+      <input type="text" name="textfield2" id="textfield2" class="form-control" required/></td>
+    </tr>
+     <tr>
+      <th scope="row">pin :</th>
+      <td>
+      <input type="tel" name="textfield3" id="textfield3" class="form-control" pattern="[0-9]{6}"required/></td>
+    </tr>
+     <tr>
+      <th scope="row">qualification :</th>
+      <td>
+      <input type="text" name="textfield1" id="textfield1" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">Mob number :</th>
+      <td>
+      <input type="tel" name="textfield5" id="textfield5"  class="form-control" pattern="[0-9][0-9]{9}" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">Email :</th>
+      <td>
+      <input type="email" name="textfield6" id="textfield6" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">Photo :</th>
+      <td>
+      <input type="file" name="fileField" id="fileField" class="form-control" required/></td>
+    </tr>
+
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="Add" class="btn btn-dark" /></th>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

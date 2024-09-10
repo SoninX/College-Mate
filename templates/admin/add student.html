@@ -1,0 +1,110 @@
+{% extends 'staff/selection.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1" >
+  <table class="table table-active">
+   <h6 class="section-title bg-white text-center text-primary px-3">ADD STUDENT</h6>
+    <tr>
+      <th scope="row">Student Name :</th>
+      <td>
+      <input type="text" name="textfield" id="textfield"  class="form-control" required/></td>
+    </tr>
+
+    <tr>
+      <th scope="row">Course Name:</th>
+      <td>
+        <select name="cn" id="select" class="form-control" >
+            {% for i in data %}
+            <option value="{{ i.course_id }}">{{ i.course_name }}</option>
+            {% endfor %}
+      </select></td>
+    </tr>
+  <tr>
+      <th scope="row">Student place :</th>
+      <td>
+      <input type="text" name="textfield1" id="textfield1" class="form-control" required/></td>
+    </tr>
+  <tr>
+      <th scope="row">Student Post :</th>
+      <td>
+      <input type="text" name="textfield2" id="textfield2" class="form-control" required/></td>
+    </tr>
+  <tr>
+      <th scope="row">Student Pin :</th>
+      <td>
+      <input type="tel" name="textfield3" id="textfield3" class="form-control" pattern="[0-9]{6}" required/></td>
+    </tr>
+    <tr>
+      <th scope="row"><p>Gender :</p></th>
+      <td><p>
+        <label>
+          <input type="radio" name="RadioGroup1" value="male" id="RadioGroup1_0" checked />
+          Male</label>
+        <br />
+        <label>
+          <input type="radio" name="RadioGroup1" value="female" id="RadioGroup1_1" />
+          Female</label>
+        <br />
+        <label>
+          <input type="radio" name="RadioGroup1" value="others" id="RadioGroup1_2" />
+          Others </label>
+        <br />
+      </p></td>
+    </tr>
+    <tr>
+      <th scope="row">Student Mob No :</th>
+      <td>
+      <input type="text" name="textfield4" id="textfield4" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">E-mail :</th>
+      <td>
+      <input type="email" name="textfield5" id="textfield5" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">Student semester :</th>
+        <td>
+      <select name="select1" id="select1" class="form-control">
+
+            <option >semester1</option>
+            <option >semester2</option>
+            <option >semester3</option>
+            <option >semester4</option>
+            <option >semester5</option>
+            <option >semester6</option>
+
+
+
+      </select></td>
+    </tr>
+   <tr>
+      <th scope="row">Student Batch :</th>
+      <td>
+      <input type="text" name="textfield6" id="textfield6"  class="form-control" required/></td>
+    </tr>
+    <tr>
+         <tr>
+      <th scope="row">Student register number :</th>
+      <td>
+      <input type="text" name="textfield7" id="textfield7" class="form-control" required/></td>
+    </tr>
+      <th scope="row">Photo</th>
+      <td>
+      <input type="file" name="fileField" id="fileField" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="add" class="btn btn-dark"/></th>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

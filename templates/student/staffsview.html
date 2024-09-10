@@ -1,0 +1,24 @@
+{% extends 'student/student_index.html' %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-active">
+    <tr>
+        <th>Name</th>
+        <th>photo</th>
+    </tr>
+    <tr>
+
+        <td>{{ data.staff_name }}</td>
+        <td><img src="{{ data.photo }}" width="100" height="100"> </td>
+    </tr>
+</table>
+</body>
+</html>
+{% endblock %}

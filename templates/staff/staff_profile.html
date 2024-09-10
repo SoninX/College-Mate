@@ -1,0 +1,48 @@
+{% extends 'staff/selection.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<table class="table table-active">
+    <h6 class="section-title bg-white text-center text-primary px-3">PROFILE</h6>
+  <tr>
+    <th>Name</th>
+    <td>{{ data.staff_name }}</td>
+  </tr>
+    <th  scope="row">Gender</th>
+    <td >&nbsp;{{ data.staff_gender }}</td>
+  </tr>
+    <th width="202" scope="row">Address</th>
+    <td width="197">&nbsp;{{ data.staff_place }}<br/>{{ data.staff_post }}<br/>{{ data.staff_pin }}</td>
+  </tr>
+
+    <th scope="row">mob</th>
+    <td>{{ data.staff_mob }}</td>
+  </tr>
+  <tr>
+    <th scope="row">E-mail</th>
+    <td>&nbsp;{{ data.staff_email }}</td>
+  </tr>
+  <tr>
+    <th scope="row">Photo</th>
+    <td><img src="{{ data.photo }}" width='100' height='100'></td>
+  </tr>
+    <th scope="row">Qulification</th>
+    <td >{{ data.staff_qualification }}</td>
+  </tr>
+</tr>
+    <th width="202" scope="row">Department</th>
+    <td width="197">&nbsp;{{ data.dept_name }}</td>
+  </tr>
+
+</table>
+
+</body>
+</html>
+{% endblock %}

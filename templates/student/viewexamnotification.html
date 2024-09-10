@@ -1,0 +1,53 @@
+{% extends 'student/student_index.html' %}
+{% block body %}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+{#<h3>View Exam Notification</h3>#}
+<h6 class="section-title bg-white text-center text-primary px-3">EXAM NOTIFICATIONS</h6>
+
+  <table class="table table-bordered">
+    <tr style="background-color: #3c35ce;color: white">
+      <th scope="col">#</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+        <th></th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i['sub_name'] }}</td>
+      <td>{{ i['date'] }}</td>
+      <td>&nbsp;{{ i['time'] }}</td>
+        {% if i.date == d %}
+        {% if i.status == 'pending' %}
+        <td><div align="center"><a href="/attend_exam/{{ i['eid'] }}#aaa" class="btn btn-success" style="width:100%;" onclick="return confirm('Lets Start?')">Attend exam</a></div></td>
+            {% else %}
+            <td><font color="green">
+{#                <b>#}
+                    Wait for result
+{#                </b>#}
+            </font> </td>
+            {% endif %}
+{% elif i.date < d %}
+{#            <td><div align="center"><font color="red">Expired</font></div> </td>#}
+            <td><div align="center"><a href="/view_result/{{ i.eid }}/{{ i.marks }}#aaa" class="btn btn-info" style="width: 100%">Result</a> </div> </td>
+            {% else %}
+            <td><div align="center"><font color="red">Not started yet!!</font></div> </td>
+    {% endif %}
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

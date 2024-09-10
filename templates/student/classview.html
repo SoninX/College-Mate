@@ -1,0 +1,37 @@
+{% extends 'student/student_index.html' %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-bordered">
+    <tr style="background-color: #3c35ce;color: white">
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+        <th></th>
+        <th></th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i['date'] }}</td>
+      <td>&nbsp;{{ i['time'] }}</td>
+
+        {% if i.date|string == d|string %}
+            <td><div align="center"> <a href="/v_call_s"  class="btn btn-success"  style="width:100%">Start Meet</a></div> </td>
+        {% elif i.date|string < d|string %}
+            <td> <div align="center"><font color="red"> <b id="blink">Expired!!</b></font></div> </td>
+            {% else %}
+            <td><div align="center"><font color="red"> <b id="blink">Not start yet!!</b></font></div> </td>
+        {% endif %}
+    </tr>
+      {% endfor %}
+  </table>
+</body>
+</html>
+{% endblock %}

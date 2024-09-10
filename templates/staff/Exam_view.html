@@ -1,0 +1,55 @@
+{% extends 'staff/selection.html' %}
+{% block body %}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+<h6 class="section-title bg-white text-center text-primary px-3">VIEW EXAM</h6>
+
+{#<h3>View Exam Notification</h3>#}
+  <table class="table table-active">
+      <tr><th>Choose date</th><td><input type="date" class="form-control" name="d" required /></td><td><input class="btn btn-success" type="submit"/></td></tr>
+  </table>
+  <table class="table table-active">
+    <tr >
+      <th scope="col">#</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+      <th scope="col">Mark</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i['sub_name'] }}</td>
+      <td>{{ i['date'] }}</td>
+      <td>&nbsp;{{ i['time'] }}</td>
+      <td>&nbsp;{{ i['marks'] }}</td>
+        {% if i.date > d %}
+    <td><a href="/scheduledelete/{{ i.exam_id }}#aaa" onclick="return confirm('Are u sure to delete?')" style="width: 100%" class="btn btn-danger">Delete</a></td>
+    <td><a href="/add_QandA/{{ i.exam_id }}/{{ i['marks'] }}#aaa" class="btn btn-warning" style="width: 100%">Add Questions</a></td>
+    <td><a href="/view_question/{{ i.exam_id }}#aaa" class="btn btn-primary" style="width: 100%">View Questions</a></td>
+            {% else %}
+    <td colspan="2"><div align="center"><a href="/view_question/{{ i.exam_id }}#aaa" class="btn btn-primary" style="width: 100%">View Questions</a></div> </td>
+    <td colspan="2"><div align="center"><a href="/viewres/{{ i.exam_id }}/{{ i.course_id }}#aaa" class="btn btn-info" style="width: 100%">View Result</a></div> </td>
+    {% endif %}
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

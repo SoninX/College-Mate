@@ -1,0 +1,86 @@
+{% extends 'student/student_index.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Calendar</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Event Calendar</h1>
+
+<!--        <form action="/event_calendar" method="post">-->
+<!--            <table>-->
+<!--                <tr>-->
+<!--                    <th><label for="company_code">Company code:</label></th>-->
+<!--                    <td>-->
+<!--                        <select id="company_code" name="company_code">-->
+<!--                            {% for company in companies %}-->
+<!--                                <option value="{{ company.company_code }}">{{ company.company_name }}</option>-->
+<!--                            {% endfor %}-->
+<!--                        </select>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <th><label for="event_title">Event Title:</label></th>-->
+<!--                    <td><input type="text" id="event_title" name="event_title"></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <th><label for="event_description">Event Description:</label></th>-->
+<!--                    <td><textarea id="event_description" name="event_description"></textarea></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <th><label for="event_date">Event Date:</label></th>-->
+<!--                    <td><input type="date" id="event_date" name="event_date"></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <th><label for="event_time">Event Time:</label></th>-->
+<!--                    <td><input type="time" id="event_time" name="event_time"></td>-->
+<!--                </tr>-->
+<!--            </table>-->
+
+<!--            <input type="submit" value="Add Event">-->
+<!--        </form>-->
+
+        <h2>Upcoming Events</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Event Title</th>
+                    <th>Event Description</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in events %}
+                <tr>
+                    <td>{{ event.event_title }}</td>
+                    <td>{{ event.event_description }}</td>
+                    <td>{{ event.event_date }}</td>
+                    <td>{{ event.event_time }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+{% endblock %}

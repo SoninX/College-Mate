@@ -1,0 +1,51 @@
+{% extends 'staff/selection.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+<table class="table table-active">
+ <h6 class="section-title bg-white text-center text-primary px-3">STUDENT DETAILS</h6>
+  <tr>
+    <th>#</th>
+    <th>Student Name</th>
+    <th>Gender</th>
+    <th>Course Name</th>
+    <th>batch</th>
+    <th>semester</th>
+    <th>Register number</th>
+
+    <th>student address</th>
+    <th>MOB</td>
+      <th>Photo</th>
+    <th>E-mail</th>
+    <th></th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <th scope="row">{{ loop.index }}</th>
+    <td>{{ i.stud_name }}</td>
+    <td>&nbsp;{{ i.stud_gender }}</td>
+    <td>&nbsp;{{ i.course_name }}</td>
+    <td>{{ i.batch }}</td>
+    <td>{{ i.semester }}</td>
+    <td>{{ i.studreg }}</td>
+    <td>{{ i.stud_place }},{{ i.stud_post }},{{ i.stud_pin }}</td>
+    <td>&nbsp;{{ i.stud_mob}}</td>
+      <td><img src="{{ i.photo }}" height="100" width="100"/></td>
+    <td>&nbsp;{{ i.stud_email }}</td>
+    <td><a href="/delete_student/ {{ i.stud_id }}" class="btn btn-dark" onclick="return confirm('Are you sure ?')">Delete</a><br/><br/>
+    <a href="/update_student/ {{ i.stud_id }}#aaa" class="btn btn-dark">Update</a></td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,113 @@
+{% extends 'staff/selection.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1" >
+  <table class="table table-active">
+   <h6 class="section-title bg-white text-center text-primary px-3">UPDATE STUDENT</h6>
+    <tr>
+      <th scope="row">Student Name :</th>
+      <td>
+      <input type="text" name="textfield" id="textfield"  class="form-control" required value="{{ data.stud_name }}" /></td>
+    </tr>
+
+    <tr>
+      <th scope="row">Course Name:</th>
+      <td>
+        <select name="cn" id="select" class="form-control" >
+            {% for i in data1 %}
+            <option value="{{ i.course_id }}" {% if i.course_id==data.stud_course_id %}selected{% endif %}>{{ i.course_name }}</option>
+            {% endfor %}
+      </select></td>
+    </tr>
+  <tr>
+      <th scope="row">Student place :</th>
+      <td>
+      <input type="text" name="textfield1" id="textfield1" class="form-control" required value="{{ data.stud_place }}"/></td>
+    </tr>
+  <tr>
+      <th scope="row">Student Post :</th>
+      <td>
+      <input type="text" name="textfield2" id="textfield2" class="form-control" required value="{{ data.stud_post }}"/></td>
+    </tr>
+  <tr>
+      <th scope="row">Student Pin :</th>
+      <td>
+      <input type="text" name="textfield3" id="textfield3" class="form-control" required value="{{ data.stud_pin }}"/></td>
+    </tr>
+    <tr>
+      <th scope="row"><p>Gender :</p></th>
+      <td><p>
+        <label>
+          <input type="radio" name="RadioGroup1" value="male" id="RadioGroup1_0" {% if data.stud_gender=='male' %} checked{% endif %}/>
+          Male</label>
+        <br />
+        <label>
+          <input type="radio" name="RadioGroup1" value="female" id="RadioGroup1_1" {% if data.stud_gender=='female' %} checked{% endif %} />
+          Female</label>
+        <br />
+        <label>
+          <input type="radio" name="RadioGroup1" value="others" id="RadioGroup1_2" {% if data.stud_gender=='others' %} checked{% endif %} />
+          Others</label>
+        <br />
+      </p></td>
+    </tr>
+    <tr>
+      <th scope="row">Student Mob No :</th>
+      <td>
+      <input type="text" name="textfield4" id="textfield4" class="form-control" required value="{{ data.stud_mob }}"/></td>
+    </tr>
+    <tr>
+      <th scope="row">E-mail :</th>
+      <td>
+      <input type="email" name="textfield5" id="textfield5" readonly class="form-control" required value="{{ data.stud_email }}"/></td>
+    </tr>
+    <tr>
+      <th scope="row">Student semester :</th>
+        <td>
+      <select name="select1" id="select1" class="form-control">
+
+
+            <option value="semester1" {% if data.semester=='semester1' %} selected{% endif %} >semester1</option>
+            <option value="semester2" {% if data.semester=='semester2' %} selected{% endif %} >semester2</option>
+            <option value="semester3" {% if data.semester=='semester3' %} selected{% endif %} >semester3</option>
+            <option value="semester4" {% if data.semester=='semester4' %} selected{% endif %} >semester4</option>
+            <option value="semester5" {% if data.semester=='semester5' %} selected{% endif %} >semester5</option>
+            <option value="semester6" {% if data.semester=='semester6' %} selected{% endif %} >semester6</option>
+
+
+
+      </select></td>
+        </td>
+    </tr>
+   <tr>
+      <th scope="row">Student Batch :</th>
+      <td>
+      <input type="text" name="textfield6" id="textfield6"  class="form-control" required value="{{ data.batch }}"/></td>
+    </tr>
+    <tr>
+         <tr>
+      <th scope="row">Student register number :</th>
+      <td>
+      <input type="text" name="textfield7" id="textfield7" class="form-control" required readonly value="{{ data.studreg }}"/></td>
+    </tr>
+      <th scope="row">Photo</th>
+      <td>
+          <img src="{{ data.photo }}" alt="" width="100" height="100"/>
+      <input type="file" name="fileField" id="fileField" class="form-control" /></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="add" class="btn btn-dark"/></th>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

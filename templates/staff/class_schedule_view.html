@@ -1,0 +1,44 @@
+{% extends 'staff/selection.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><table class="table table-active">
+<h6 class="section-title bg-white text-center text-primary px-3">SCHEDULE LIST</h6>
+  <tr>
+    <th scope="row">#</th>
+    <td>subject</td>
+    <td>time</td>
+    <td>date</td>
+    <td>&nbsp;</td>
+    <td></td>
+  </tr>
+
+
+      {% for i in data %}
+          <tr>
+    <th scope="row">{{ loop.index }}</th>
+    <td>{{ i.sub_name }}</td>
+    <td>{{ i.time }}</td>
+    <td>{{ i.date }}</td>
+    <td><p><a href="/class_schedule_delete/{{ i.cid }}" class="btn btn-dark">Delete</a></p>
+    <p><a href="/class_schedule_edit/{{ i.cid }}" class="btn btn-dark">Update</a></p>
+        <p><a href="/v_call/{{ i.cid }}" class="btn btn-dark">video call</a></p></td>
+              <td><p><a href="/attendence/{{ i.cid }}/{{ i.sems }}/{{ i.course_id }}#aaa" class="btn btn-dark">ATTENDENCE</a></p><br></td>
+{#        <p><a href="/attendence_view/{{ i.cid }}/{{ i.sems }}" class="btn btn-dark">VIEW ATTENDENCE</a></p><br></td>#}
+
+
+          </tr>
+      {% endfor %}
+{#  </tr>#}
+
+</table>
+
+</body>
+</html>
+{% endblock %}

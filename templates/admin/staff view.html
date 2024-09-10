@@ -1,0 +1,45 @@
+{% extends 'admin/selection.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="" method="get" enctype="multipart/form-data" name="form1" id="form1" >
+<table class="table table-active">
+ <h6 class="section-title bg-white text-center text-primary px-3">STAFF DETAILS</h6>
+  <tr>
+    <th scope="row">#</th>
+    <td>staff name</td>
+    <td>gender</td>
+    <td>staff department</td>
+    <td>staff address</td>
+    <td>mobile number</td>
+    <td>email</td>
+    <td>photo</td>
+    <td>&nbsp;</td>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <th scope="row">{{ loop.index }}</th>
+    <td>{{ i.staff_name }}</td>
+    <td>{{ i.staff_gender }}</td>
+    <td>&nbsp;{{ i.dept_name }}</td>
+    <td>&nbsp;{{ i.staff_place }},{{ i.staff_post }},
+    {{ i.staff_pin}}</td>
+      <td>{{ i.staff_mob }}</td>
+    <td>{{ i.staff_email }}</td>
+    <td><img src="{{ i.photo }}" height="100" width="100"></td>
+    <td><p><a href="/delete_staff/ {{ i.staff_id }}" onclick="return confirm('Are you sure ?')" class="btn btn-dark">Delete</a></p>
+    <p><a href="/edit_staff_view/{{ i.staff_id }}#aaa" class="btn btn-dark">Update</a></p></td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'staff/selection.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<table class="table table-active">
+<h6 class="section-title bg-white text-center text-primary px-3">ALLOCATE SUBJECT</h6>
+  <tr>
+    <th scope="row">#</th>
+    <th>Allocated subjects</th>
+    <td></td>
+      <td></td>
+      <td></td>
+
+  </tr>
+    {% for i in data %}
+  <tr>
+    <th >&nbsp;{{ loop.index }}</th>
+    <td >{{ i.sub_name }}</td>
+    <td ><a href="/upload_notes/{{ i.suballoc_courseid }}#aaa" class="btn btn-dark">NOTES upload</a><br><br>
+    <a href="/notes_view/{{ i.suballoc_courseid }}#aaa" class="btn btn-dark">NOTES view</a><br> </td>
+{#    <td width="264"><a href="/notes_view/{{ i.suballoc_courseid }}">VIEW NOTES</a><br> </td>#}
+  <td ><a href="/upload_previous_question_paper/{{ i.suballoc_courseid }}#aaa"class="btn btn-dark">question upload</a><br><br>
+      <a href="/previous_question_paper_view/{{ i.suballoc_courseid }}#aaa"class="btn btn-dark">question view</a><br><br> </td>
+{#  <td ><a href="#" class="btn btn-dark">EXAM ADD</a><br><BR>#}
+{#  <a href="#" class="btn btn-dark">EXAM VIEW</a><br> </td>#}
+  <td ><a href="/view_students/{{ i.course_id }}/{{ i.sems }}#aaa" class="btn btn-dark">CHAT</a><br> </td>
+
+{#    <td width="264"><a href="/previous_question_paper_view/{{ i.suballoc_courseid }}">VIEW question paper</a><br> </td>#}
+  </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
+{% endblock %}

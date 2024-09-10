@@ -1,0 +1,33 @@
+{% extends 'staff/selection.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered">
+    <tr>
+      <th>#</th>
+      <th>Rating</th>
+      <th>Review</th>
+      <th align="center">User Name</th>
+      <th>Date</th>
+{#      <th>Type</th>#}
+    </tr>
+      {% for i in range(0,ln) %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ resu[i]['reviews']}}</td>
+      <td >
+                <img src="{{ r1[i][0] }}" width="20" height="20">
+                <img src="{{ r1[i][1] }}" width="20" height="20">
+                <img src="{{ r1[i][2] }}" width="20" height="20">
+                <img src="{{ r1[i][3] }}" width="20" height="20">
+                <img src="{{ r1[i][4] }}" width="20" height="20">
+            </td>
+
+      <td align="center"><img src="{{ resu[i]['photo'] }}" height="100" width="100"><br>{{ resu[i]['stud_name'] }}</td>
+      <td>{{ resu[i]['date'] }}</td>
+{#      <td>{{ resu[i][4] }}</td>#}
+    </tr>
+       {% endfor %}
+  </table>
+</form>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'staff/staff_index.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<table class="table table-active">
+<h6 class="section-title bg-white text-center text-primary px-3">NOTES VIEW</h6>
+  <tr>
+    <th scope="row">#</th>
+{#    <td>Subject name</td>#}
+    <td>Notes</td>
+      <td>Details</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>{% for i in data %}
+    <th scope="row">{{ loop.index }}&nbsp;</th>
+{#    <td>&nbsp;</td>#}
+    <td>&nbsp;<a href="{{ i.materials }}" download >Click here to download?<img src="/static/icon/pdficon.png" alt="" height="50" width="50"/> </a> </td>
+      <td>{{ i.details }}</td>
+    <td><a href="/notes_delete/{{ i.mid }}" class="btn btn-dark" onclick="return confirm('Are you sure to delete?')">Delete</a></td>
+  </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'student/student_index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="" method="post">
+<h6 class="section-title bg-white text-center text-primary px-3">SELECT SUBJECT</h6>
+ <select name="subjects" class="form-control">
+    {% for i in data %}
+    <option value="{{ i.sub_id }}">{{ i.sub_name }}</option>
+    {% endfor %}
+</select>
+<input type="submit"value="select" class="btn btn-dark" class="form-control"/>
+<br>
+<br>
+ <table class="table table-active">
+ <h6 class="section-title bg-white text-center text-primary px-3">NOTES</h6>
+  <tr>
+    <th scope="row">#</th>
+    <td >notes</td>
+    <td>&nbsp;</td>
+  </tr>
+
+     {% for i in data1 %}
+  <tr>
+    <th scope="row">&nbsp;{{ loop.index }}</th>
+    <td><a href="{{ i.materials }}"><img src="static/icon/download.png" height="20px" width="20px"></a></td>
+    <td>&nbsp;{{ i.details }}</td>
+  </tr>
+     {% endfor %}
+</table>
+</form>
+
+ </body>
+</html>
+{% endblock %}

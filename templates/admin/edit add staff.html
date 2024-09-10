@@ -1,0 +1,91 @@
+{% extends 'admin/selection.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="table table-active">
+
+   <h6 class="section-title bg-white text-center text-primary px-3">UPDATE STAFF</h6>
+    <tr>
+      <th scope="row">Name :</th>
+      <td>
+      <input type="text" name="textfield" id="textfield" value="{{ data.staff_name }}"  class="form-control" required/></td>
+    </tr>
+<tr>
+      <th scope="row">department Name :</th>
+      <td><label for="select"></label>
+        <select name="select" id="select" class="form-control">
+            {% for i in data1 %}
+            <option value="{{ i.dept_id }}" {% if i.dept_id==data.dept_id %}selected{% endif %} >{{ i.dept_name }}</option>
+            {% endfor %}
+      </select></td>
+    </tr>
+  <tr>
+       <th scope="row">gender</th>
+       <td><p>
+         <label>
+           <input type="radio" name="RadioGroup1" value="male"  id="RadioGroup1_0" {% if data.staff_gender=='male' %}checked{% endif %} />
+           male</label>
+         <br />
+         <label>
+           <input type="radio" name="RadioGroup1"   value="female" id="RadioGroup1_1" {% if data.staff_gender=='female' %}checked{% endif %} />
+           female</label>
+         <br />
+         <label>
+           <input type="radio"   name="RadioGroup1" value="other" id="RadioGroup1_2" {% if data.staff_gender=='other' %}checked{% endif %}/>
+           other</label>
+         <br />
+       </p></td>
+     </tr>
+  <tr>
+      <th scope="row">place :</th>
+<td>
+      <input type="text" name="textfield4" class="form-control" required id="textfield4" value="{{ data.staff_place }}"/></td>
+  </td>
+    </tr>
+     <tr>
+      <th scope="row">post</th>
+      <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" required class="form-control" id="textfield2"value="{{ data.staff_post }}" /></td>
+    </tr>
+     <tr>
+      <th scope="row">pin :</th>
+      <td><label for="textfield3"></label>
+      <input type="text" name="textfield3"  required class="form-control" id="textfield3"value="{{ data.staff_pin }}" /></td>
+    </tr>
+     <tr>
+      <th scope="row">qualification :</th>
+      <td><label for="textfield1"></label>
+      <input type="text" name="textfield1" required class="form-control" id="textfield1"value="{{ data.staff_qualification }}" /></td>
+    </tr>
+    <tr>
+      <th scope="row">Mob number :</th>
+      <td><label for="textfield5"></label>
+      <input type="text" name="textfield5" required class="form-control" id="textfield5" value="{{ data.staff_mob }}"/></td>
+    </tr>
+    <tr>
+      <th scope="row">Email :</th>
+      <td><label for="textfield6"></label>
+      <input type="email" name="textfield6"  class="form-control" id="textfield6"value="{{ data.staff_email }}" readonly /></td>
+    </tr>
+    <tr>
+      <th scope="row">Photo :</th>
+      <td><img src="{{ data.photo }}"height="100" width="100"/> <label for="fileField"></label>
+      <input type="file" name="fileField" required class="form-control" id="fileField" /></td>
+    </tr>
+
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="Add Staff" class="btn btn-dark"/></th>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

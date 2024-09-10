@@ -1,0 +1,45 @@
+{% extends 'staff/selection.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="" method="post">
+    <table class="table table-active">
+<h6 class="section-title bg-white text-center text-primary px-3">ATTENDENCE</h6>
+<tr>
+    <th>Choose Date</th>
+    <td><input type="date" name="d" class="form-control" required/></td>
+
+</tr>
+<tr><td colspan="2" align="center"><input type="submit" class="btn btn-dark" value="SEARCH"/></td></tr>
+</table>
+<table class="table table-active">
+    <tr>
+    <th scope="row">#</th>
+    <td>Student name</td>
+    <td>Attendence</td>
+      <TD>date</TD>
+      <th>Class</th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <th scope="row">{{ loop.index }}</th>
+    <td>&nbsp;{{ i.stud_name }}</td>
+    <td>{{ i.attendence }}&nbsp;</td>
+    <td>{{ i.attendence_date }}</td>
+  <td>{{ i.sub_name }}</td>
+
+  </tr>
+    {% endfor %}
+</table>
+</form>
+
+</body>
+</html>
+{% endblock %}

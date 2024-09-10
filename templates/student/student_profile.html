@@ -1,0 +1,58 @@
+{% extends 'student/student_index.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<table class="table table-active">
+  <tr>
+    <th scope="row">name</th>
+    <td>&nbsp;{{ data.stud_name }}</td>
+  </tr>
+    <tr><th>Reg number</th>
+        <td>{{ data.studreg }}</td>
+    </tr>
+  <tr>
+    <th scope="row">course</th>
+    <td>{{ data.course_name }}</td>
+  </tr>
+  <tr>
+    <th scope="row">photo</th>
+    <td><img src="{{ data.photo }}" height="100" width="100"/> </td>
+  </tr>
+    <tr><th>Batch</th>
+        <td>{{ data.batch }}</td>
+    </tr>
+  <tr>
+    <th scope="row">gender</th>
+    <td>{{ data.stud_gender }}</td>
+  </tr>
+{#  <tr>#}
+{#    <th scope="row">dob</th>#}
+{#    <td>&nbsp;{{ data.date_of_birth }}</td>#
+{#  </tr>#}
+  <tr>
+    <tr>
+    <th>Email</th>
+    <td>{{ data.stud_email }}</td>
+</tr>
+    <tr><th>Mobile Number</th>
+        <td>{{ data.stud_mob }}</td>
+    </tr>
+<tr>
+    <th scope="row">Address</th>
+    <td>{{ data.stud_post }}
+        <br>
+        {{ data.stud_pin }}
+        <br>{{ data.stud_place }}</td>
+  </tr>
+</table>
+
+</body>
+</html>
+{% endblock %}

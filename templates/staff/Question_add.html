@@ -1,0 +1,96 @@
+{% extends 'staff/selection.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+
+    <script type="text/javascript">
+                  var xmlHttp;
+            function show(){
+                var date=document.getElementById("select").value;
+
+                if (typeof XMLHttpRequest != "undefined"){
+                xmlHttp= new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject){
+                    xmlHttp= new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                if (xmlHttp==null){
+                    alert("Browser does not support XMLHTTP Request")
+                    return;
+                }
+
+                if(date=="select"){
+                    alert('Choose type');
+                }
+                else {
+                    var url = "/op/" + date;
+
+                    xmlHttp.onreadystatechange = stateChange;
+                    xmlHttp.open("GET", url, true);
+
+                    xmlHttp.send(null);
+                }
+            }
+
+            function stateChange(){
+                if(xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){
+
+                    document.getElementById("k").innerHTML=xmlHttp.responseText
+                }
+	}
+
+</script>
+
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+{#<h3>adding question and answer</h3>#}
+  <table class="table table-bordered">
+<tr>
+    <td colspan="3">
+        <div align="right">Remaining mark :{{ d }}</div>
+    </td>
+</tr>
+      <tr>
+          <th>Type</th>
+          <td>
+              <select name="s" onchange="return show()" id="select" class="form-control">
+                  <option>select</option>
+                  <option>MCQ</option>
+                  <option>Briefly explain</option>
+              </select>
+          </td>
+      </tr>
+
+    <tr>
+      <th scope="row">Question</th>
+      <td><label for="textarea"></label>
+      <textarea name="textarea" id="textarea" cols="45" rows="5" class="form-control" required></textarea></td>
+    </tr>
+  </table>
+    <table id="k" class="table table-bordered">
+
+    </table>
+<table class="table table-bordered">
+    <tr>
+      <th scope="row">Correct Answer</th>
+      <td>
+      <input type="text" name="textfield5" id="textfield5" class="form-control" required/></td>
+    </tr>
+      <tr>
+      <th scope="row">Marks</th>
+      <td>
+      <input type="number" min="1" name="textfield6" id="textfield6" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="Add" class="btn btn-dark"/></th>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'admin/selection.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<table class="table table-active">
+    <h6 class="section-title bg-white text-center text-primary px-3">COMPLAINTS</h6>
+
+
+  <tr>
+    <th width="12" scope="row">#</th>
+    <td width="133">Student name</td>
+    <td width="111">Complaints</td>
+    <td width="47">Date</td>
+    <td width="133">&nbsp;Reply</td>
+    <td width="133">&nbsp;Reply date</td>
+  </tr>
+     {% for i in data %}
+  <tr>
+
+    <th scope="row">{{ loop.index }}</th>
+    <td>&nbsp;{{ i.stud_name }}</td>
+    <td>{{ i.complaint}}</td>
+    <td>{{ i.complaint_date }}</td>
+      {% if i.reply=='pending' %}
+    <td colspan="2" align="center"><a href="/complaint_reply/{{ i.complaint_id }}#aaa" class="btn btn-dark">Reply</a></td>
+  {% else %}
+  <td>{{ i.reply }}</td>
+  <td>{{ i.reply_date }}</td>
+  {% endif %}
+
+  </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
+{% endblock %}

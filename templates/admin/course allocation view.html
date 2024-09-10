@@ -1,0 +1,39 @@
+{% extends 'admin/selection.html' %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><table class="table table-active">
+ <h6 class="section-title bg-white text-center text-primary px-3">ALLOCATED COURSE</h6>
+  <tr>
+    <td width="43" align="center">#</td>
+    <td width="43" >course name</td>
+    <td width="43" >subject name</td>
+    <td width="43">semester</td>
+
+    <td width="43">&nbsp;</td>
+    <td width="43">&nbsp;</td>
+  </tr>
+     {% for i in data %}
+  <tr>
+    <td height="312">{{ loop.index }}&nbsp;</td>
+      <td height="312">{{ i.course_name }}</td>
+    <td height="312">{{ i.sub_name }}</td>
+
+    <td>{{ i.sems }}</td>
+    <td><p><a href="/delete_course_allocation/ {{ i.suballoc_courseid }}" class="btn btn-dark" onclick="confirm('Are you sure ?')">delete</a></p>
+    <p><a href="/update_course_allocation/{{ i.suballoc_courseid }}#aaa " class="btn btn-dark">update</a></p></td>
+   <td> <p><a href="/alloc_staff/{{ i.suballoc_courseid }}/{{ i.dept_id }}#aaa " class="btn btn-dark">allocate staff</a></p></td>
+{#  <td><p><a href="/view_alloc_staff/{{ i.suballoc_courseid }}/{{ i.dept_id }}" class="btn btn-dark">Allocate staff</a></p></td>#}
+  </tr>
+     {% endfor %}
+</table>
+
+</body>
+</html>
+{% endblock %}

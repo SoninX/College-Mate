@@ -1,0 +1,49 @@
+{% extends 'staff/staff_index.html' %}
+{% block body %}
+<form action="" method="post">
+
+<br>
+    {% if data %}
+
+        <table class="table table-bordered">
+  <tr style="background-color: #3c35ce;color: white">
+    <th scope="row">#</th>
+    <td>Name</td>
+{#    <td>Gender</td>#}
+{#    <td>Address</td>#}
+    <td>Semester</td>
+    <td>Email</td>
+    <td>Mob</td>
+    <td>Batch</td>
+      <td>Reg No.</td>
+
+{#    <td>Course_name</td>#}
+      <td>Mark</td>
+  </tr>
+   {% for i in data %}
+  <tr>
+      <td>{{ loop.index }}</td>
+      <td><img src="{{ i['photo'] }}" height="100" width="100" class="rounded-circle"><br>{{i['stud_name']}}</td>
+{#      <td>{{ i['stud_gender'] }}</td>#}
+{#      <td>{{ i['stud_place'] }}<br>{{ i['stud_post'] }}<br>{{ i['stud_pin'] }}</td>#}
+      <td>{{ i['semester'] }}</td>
+      <td>{{ i['stud_email'] }}</td>
+      <td>{{ i['stud_mob'] }}</td>
+      <td>{{ i['batch'] }}</td>
+      <td>{{ i['studreg'] }}</td>
+{#      <td>{{ i['course_name'] }}</td>#}
+
+      <td>{% if  i['mark']== None %}
+        <font color="red">Not Attended</font>
+          {% else %}
+        {{ i['mark'] }}
+          {% endif %}
+      </td>
+  </tr>
+    {% endfor %}
+</table>
+{#<input type="submit" value="ADD" class="btn btn-dark">#}
+    {% endif %}
+
+</form>
+{% endblock %}
